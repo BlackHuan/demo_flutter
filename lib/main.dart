@@ -51,6 +51,8 @@ class MainApp extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                   onPressed: () async {
+                    // Find the correct local path: https://docs.flutter.dev/cookbook/persistence/reading-writing-files#1-find-the-correct-local-path
+
                     String? outputFile = await FilePicker.platform.saveFile(
                       dialogTitle: 'Please select an output file:',
                       fileName: 'output-file.pdf',
