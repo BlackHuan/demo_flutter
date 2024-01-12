@@ -7,14 +7,40 @@ import 'dart:isolate';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/services.dart';
 import 'package:process/process.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  static const platform = MethodChannel('samples.flutter.dev/battery');
+
+  String _batteryLevel = 'Unknown battery level.';
+  
+  Future<void> _getBatteryLevel() async {
+    String batteryLevel;
+    try {
+      final result = await platform.invokeMethod<int>('getBatteryLevel');
+      batteryLevel = 'Battery level at $result % .';
+    } on MissingPluginException catch (_) {
+      batteryLevel = "Failed to get plugin.";
+    } on PlatformException catch (e) {
+      batteryLevel = "Failed to get battery level: '${e.message}'.";
+    }
+
+    setState(() {
+      _batteryLevel = batteryLevel;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,19 +154,19 @@ class MainApp extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                      onPressed: () async {
-                        
-                      },
-                      child: const Text('Platform Channels')),
+                  child: Column(
+                    children: [
+                      ElevatedButton(
+                          onPressed: _getBatteryLevel,
+                          child: const Text('Platform Channels')),
+                      Text(_batteryLevel),
+                    ],
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
-                      onPressed: () async {
-                        
-                      },
-                      child: const Text('FFI')),
+                      onPressed: () async {}, child: const Text('FFI')),
                 ),
               ],
             ),
