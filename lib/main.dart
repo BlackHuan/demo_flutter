@@ -2,7 +2,9 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:isolate';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:process/process.dart';
@@ -51,7 +53,7 @@ class MainApp extends StatelessWidget {
                           // User canceled the picker
                         }
                       },
-                      child: const Text('读取文件')),
+                      child: const Text('File Read')),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -75,21 +77,72 @@ class MainApp extends StatelessWidget {
                           sink.close();
                         }
                       },
-                      child: const Text('保存文件')),
+                      child: const Text('File Save')),
                 ),
               ],
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child:
-                  ElevatedButton(onPressed: () async {
+              child: ElevatedButton(
+                  onPressed: () async {
                     var p = ProcessWrapper(await Process.start('ls', ['-l']));
                     print(p.pid);
-                    await for (var line in p.stdout.transform(utf8.decoder)
-                              .transform(const LineSplitter())) {
+                    await for (var line in p.stdout
+                        .transform(utf8.decoder)
+                        .transform(const LineSplitter())) {
                       print(line);
                     }
-                  }, child: const Text('调用命令行')),
+                  },
+                  child: const Text('Process')),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                  onPressed: () async {
+                    void runInIsolate(SendPort sendPort) {
+                      sendPort.send('Hello from Isolate!');
+                    }
+
+                    final receivePort = ReceivePort();
+                    final isolate =
+                        await Isolate.spawn(runInIsolate, receivePort.sendPort);
+
+                    receivePort.listen((message) {
+                      print('Message from Isolate: $message');
+                      receivePort.close();
+                      isolate.kill();
+                    });
+
+                    int addNumbers(Map<String, int> data) {
+                      final a = data['a']!;
+                      final b = data['b']!;
+                      return a + b;
+                    }
+
+                    final result = await compute(addNumbers, {'a': 3, 'b': 4});
+                    print('Result: $result');
+                  },
+                  child: const Text('Isolate')),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                      onPressed: () async {
+                        
+                      },
+                      child: const Text('Platform Channels')),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                      onPressed: () async {
+                        
+                      },
+                      child: const Text('FFI')),
+                ),
+              ],
             ),
           ],
         ),
