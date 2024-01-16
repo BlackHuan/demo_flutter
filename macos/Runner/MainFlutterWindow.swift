@@ -41,7 +41,8 @@ class MainFlutterWindow: NSWindow {
         let description =
           IOPSGetPowerSourceDescription(info, source).takeUnretainedValue() as! [String: AnyObject]
         if let level = description[kIOPSCurrentCapacityKey] as? Int {
-          return level
+            let intValue: Int? = Int(addNumbers(Int32(level), 100));
+            return intValue;
         }
       }
       return nil

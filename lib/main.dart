@@ -169,20 +169,20 @@ class _MainAppState extends State<MainApp> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                       onPressed: () async {
-                        // final int Function() tmp = nativeAddLib
-                        //   .lookup<NativeFunction<Int32 Function()>>('avcodec_configuration')
-                        //   .asFunction();
-                        // print("1");
-                        // tmp();
-                        // print("2");
-
-                        final dylib = DynamicLibrary.open('/usr/local/Cellar/ffmpeg/6.1.1_2/lib/libavcodec.dylib');
-                        final void Function() tmp = dylib
-                          .lookup<NativeFunction<Void Function()>>('avcodec_configuration')
+                        final int Function() tmp = nativeAddLib
+                          .lookup<NativeFunction<Int32 Function()>>('avcodec_configuration')
                           .asFunction();
                         print("1");
                         tmp();
                         print("2");
+
+                        // final dylib = DynamicLibrary.open('/usr/local/Cellar/ffmpeg/6.1.1_2/lib/libavcodec.dylib');
+                        // final void Function() tmp = dylib
+                        //   .lookup<NativeFunction<Void Function()>>('avcodec_configuration')
+                        //   .asFunction();
+                        // print("1");
+                        // tmp();
+                        // print("2");
                       }, child: const Text('FFI')),
                 ),
               ],
