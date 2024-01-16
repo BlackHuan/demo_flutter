@@ -21,6 +21,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		03CD64492B560932008D67EA /* libpostproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64412B560932008D67EA /* libpostproc.a */; };
+		03CD644A2B560932008D67EA /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64422B560932008D67EA /* libavfilter.a */; };
+		03CD644B2B560932008D67EA /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64432B560932008D67EA /* libavutil.a */; };
+		03CD644C2B560932008D67EA /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64442B560932008D67EA /* libavdevice.a */; };
+		03CD644D2B560932008D67EA /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64452B560932008D67EA /* libswscale.a */; };
+		03CD644E2B560932008D67EA /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64462B560932008D67EA /* libswresample.a */; };
+		03CD644F2B560932008D67EA /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64472B560932008D67EA /* libavcodec.a */; };
+		03CD64502B560932008D67EA /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64482B560932008D67EA /* libavformat.a */; };
+		03CD64532B560E26008D67EA /* libavcodec.60.31.102.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CD64512B560DF3008D67EA /* libavcodec.60.31.102.dylib */; };
 		331C80D8294CF71000263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C80D7294CF71000263BE5 /* RunnerTests.swift */; };
 		335BBD1B22A9A15E00E9071D /* GeneratedPluginRegistrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335BBD1A22A9A15E00E9071D /* GeneratedPluginRegistrant.swift */; };
 		33CC10F12044A3C60003C045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC10F02044A3C60003C045 /* AppDelegate.swift */; };
@@ -62,6 +71,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03CD64412B560932008D67EA /* libpostproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpostproc.a; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libpostproc.a; sourceTree = "<group>"; };
+		03CD64422B560932008D67EA /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libavfilter.a; sourceTree = "<group>"; };
+		03CD64432B560932008D67EA /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libavutil.a; sourceTree = "<group>"; };
+		03CD64442B560932008D67EA /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libavdevice.a; sourceTree = "<group>"; };
+		03CD64452B560932008D67EA /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libswscale.a; sourceTree = "<group>"; };
+		03CD64462B560932008D67EA /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libswresample.a; sourceTree = "<group>"; };
+		03CD64472B560932008D67EA /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libavcodec.a; sourceTree = "<group>"; };
+		03CD64482B560932008D67EA /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libavformat.a; sourceTree = "<group>"; };
+		03CD64512B560DF3008D67EA /* libavcodec.60.31.102.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.60.31.102.dylib; path = ../../../../../../opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib/libavcodec.60.31.102.dylib; sourceTree = "<group>"; };
 		1D16ACBCE1005563896FF598 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		305124B1FD5534265840C4FE /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
 		331C80D5294CF71000263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +121,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CD64532B560E26008D67EA /* libavcodec.60.31.102.dylib in Frameworks */,
+				03CD64492B560932008D67EA /* libpostproc.a in Frameworks */,
+				03CD644A2B560932008D67EA /* libavfilter.a in Frameworks */,
+				03CD644B2B560932008D67EA /* libavutil.a in Frameworks */,
+				03CD644C2B560932008D67EA /* libavdevice.a in Frameworks */,
+				03CD644D2B560932008D67EA /* libswscale.a in Frameworks */,
+				03CD644E2B560932008D67EA /* libswresample.a in Frameworks */,
+				03CD644F2B560932008D67EA /* libavcodec.a in Frameworks */,
+				03CD64502B560932008D67EA /* libavformat.a in Frameworks */,
 				BEE6D07806CEC039C522EE66 /* Pods_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,13 +222,21 @@
 				305124B1FD5534265840C4FE /* Pods-RunnerTests.release.xcconfig */,
 				D38830D3830D0663F03ECC0C /* Pods-RunnerTests.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		D73912EC22F37F3D000D13A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03CD64512B560DF3008D67EA /* libavcodec.60.31.102.dylib */,
+				03CD64472B560932008D67EA /* libavcodec.a */,
+				03CD64442B560932008D67EA /* libavdevice.a */,
+				03CD64422B560932008D67EA /* libavfilter.a */,
+				03CD64482B560932008D67EA /* libavformat.a */,
+				03CD64432B560932008D67EA /* libavutil.a */,
+				03CD64412B560932008D67EA /* libpostproc.a */,
+				03CD64462B560932008D67EA /* libswresample.a */,
+				03CD64452B560932008D67EA /* libswscale.a */,
 				C6B99E6DD3DAEAA77DDD12E8 /* Pods_Runner.framework */,
 				70EF06B054402A6F0BD6E59F /* Pods_RunnerTests.framework */,
 			);
@@ -557,6 +592,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib,
+				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
@@ -678,11 +717,17 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/DebugProfile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = /opt/homebrew/Cellar/ffmpeg/6.1.1_2/include;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib,
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -702,6 +747,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/homebrew/Cellar/ffmpeg/6.1.1_2/lib,
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

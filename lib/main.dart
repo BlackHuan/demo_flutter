@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 import 'dart:isolate';
 
@@ -23,6 +24,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   static const platform = MethodChannel('samples.flutter.dev/battery');
+  final DynamicLibrary nativeAddLib = DynamicLibrary.process();
 
   String _batteryLevel = 'Unknown battery level.';
   
@@ -166,7 +168,14 @@ class _MainAppState extends State<MainApp> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
-                      onPressed: () async {}, child: const Text('FFI')),
+                      onPressed: () async {
+                        final int Function() tmp = nativeAddLib
+                          .lookup<NativeFunction<Int32 Function()>>('avcodec_configuration')
+                          .asFunction();
+                        print("1");
+                        tmp();
+                        print("2");
+                      }, child: const Text('FFI')),
                 ),
               ],
             ),
