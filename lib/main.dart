@@ -14,6 +14,7 @@ import 'package:process/process.dart';
 import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:http/http.dart' as http;
 
 class Dog {
   final int id;
@@ -153,6 +154,27 @@ void main() async {
   }
 
   runApp(const MainApp());
+}
+
+class ErrorInfo {
+  final int code;
+  final String msg;
+
+  const ErrorInfo({required this.code, required this.msg});
+
+  factory ErrorInfo.fromJson(Map<String, dynamic> json) {
+    return switch (json) {
+      {
+        'code': int code,
+        'msg': String msg,
+      } =>
+        ErrorInfo(
+          code: code,
+          msg: msg,
+        ),
+      _ => throw const FormatException('Failed to load ErrorInfo.'),
+    };
+  }
 }
 
 class MainApp extends StatefulWidget {
@@ -328,6 +350,30 @@ class _MainAppState extends State<MainApp> {
                       child: const Text('FFI')),
                 ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  ElevatedButton(
+                      onPressed: () async {
+                        final http.Response tmp = await http.post(
+                          Uri.parse(
+                              'https://127.0.0.1:8000/login'),
+                          headers: <String, String>{
+                            'Content-Type': 'application/json; charset=UTF-8',
+                          },
+                          body: jsonEncode(<String, String>{
+                            'username': 'black.wang',
+                            'password': '123',
+                          }),
+                        );
+
+
+                      },
+                      child: const Text('HTTP')),
+                ],
+              ),
             ),
           ],
         ),
